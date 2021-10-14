@@ -1,0 +1,36 @@
+Passo a Passo - Webpack Alura
+
+npm install
+npm run start(rodar o projeto)
+
+Browser - na aba Network
+Ctrl + R, para verificar os modulos do JS.
+
+Instalação dos arquivos do webpack(versao do curso)
+
+npm install webpack @5.28.0 --save-dev
+
+em modo de desenvolvimento
+
+Instalação do CLI
+
+npm install webpack-cli@4.5.0 --save-dev
+
+Colocar o script para rodar o webpack.
+
+build-dev
+
+Realizando um caminho absoluto,para rodar o path = 'dist'
+
+const path = require('path')
+
+path.resolve(__dirname,'app/dist')
+
+Webpack, precisa saber se é modo de desenvolvimento ou modo de produção
+
+usando o parâmetro no package.json
+
+--mode development
+
+
+
