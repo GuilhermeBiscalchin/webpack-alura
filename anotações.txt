@@ -32,5 +32,38 @@ usando o parâmetro no package.json
 
 --mode development
 
+Gerando um HTML, para a pasta dist.
+
+Utilizando o plugin HTML webpack plugin
+
+todo plugins, que importar dentro da configuração, importar dentro do webpack.config
+
+Classe sempre com a primeira letra MAISCULA, pois está usando o operador 'new'
+
+Vai ser gerado um 'index',porém aqui tem a necessidade de ser um 'app.html'
+
+Comando para colocar o plugin
+
+npm install html-webpack-plugin@5.3.1 –save-dev
+
+depois fazer a variável, com as configuração no webpack
+
+Passar parâmetros para o construtor HtmlWebpackPlugin
+
+Mostrando aonde está o template do .html e o filename.
+
+Gerar a pasta 'dist' e apagar toda vez que é gerado.
+
+No 'output', clean:true.
+
+Invalidando cache
+
+No plugin, hash:true
+
+Quando carregar o bundle.js, se ficar em cache, e tiver uma alteração é recarregado o js novamente.
+
+
+
+
 
 
