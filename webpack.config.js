@@ -1,5 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+//const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
     entry: './app/src/js/app.js',
@@ -8,9 +11,30 @@ module.exports = {
         path: path.resolve(__dirname,'app/dist'),
         clean: true
     },
-    plugins: [ new HtmlWebpackPlugin({
-        template: './app/src/app.html',
-        filename: 'app.html',
-        hash:true
-    })]
+    module:{
+        rules:[{
+            test: /\.css$/,
+             use:[/*'style-loader'*/MiniCssExtractPlugin.loader,'css-loader']
+     } ]
+    },
+    optimization:{
+        minimize: true,
+        minimizer:[new CssMinimizerWebpackPlugin()]
+    },
+    plugins: [ 
+        new HtmlWebpackPlugin({
+            template: './app/src/app.html',
+            filename: 'app.html',
+            hash:true
+    }),
+    new MiniCssExtractPlugin({
+        filename:'style.css'
+    })
+    //new CopyWebpackPlugin ({
+      //      patterns:[
+        //        {from: './app/src/css', to: 'css'}
+          //  ] 
+    //})
+
+]
 };

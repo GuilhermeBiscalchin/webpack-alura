@@ -63,6 +63,109 @@ No plugin, hash:true
 Quando carregar o bundle.js, se ficar em cache, e tiver uma alteração é recarregado o js novamente.
 
 
+Resolvendo o CSS.
+
+Usando outro plugin, instalando 
+
+npm install copy-webpack-plugin@8.1.0 --save-dev
+
+Fazer a importação no webpack.config
+
+pasta e destino de origem
+
+patterns 
+{
+from (qual pasta eu copio), 
+to (para onde vai a pasta)
+}
+
+Com React, projeto no webpack
+
+Tratar como modulos, esse arquivos com o gerenciador npm.
+
+- instalar o bootstrap por npm
+
+npm install bootstrap@4.6.0 --save
+
+Sem ser em desenvolvimento, pois vai ser visualizado no projeto final.
+
+Tratar Css como modulo.
+
+Importar o bootstrap no app.js 
+como modulo.
+E no node_modules, vai ser a importação.
+
+trantando com o CSS-Loader,para importar o css nos arquivos.
+
+npm install css-loader@5.2.0 --save-dev
+
+Configurar no webpack.config
+usar com a expressão regular, mostrando quando terminar em .css, usar o loader, que é o css-loader.
+
+module:{
+rules:[{
+test: /\.css$/, use:['css-loader']'
+}]
+}
+
+Dessa maneira, o css foi apenas para o bundle.js
+
+Necessário usar outro plugin para resolver isso.
+
+Configurar o style-loader
+
+npm install style-loader@2.0.0 --save-dev
+
+Essa instalação é para transformar o que foi para o js, voltar para o html como style.css
+
+no 'use', coloca o style-loader
+
+Adicionando CSS,como bundle.css, para não ocorrer no JS.
+
+Instalação de um plugin
+
+npn install mini-css-extract-plugin@1.4.0 –save-dev
+
+Fazer a const, do plugin
+
+No lugar do 'style-loader', chamar a classe que criei, junto com o '.loader'
+
+para otimização.
+
+
+Build de produção.
+
+No package.json
+chamar de 'build-prod'
+
+--mode production
+
+Serve para compactar e otimizar melhor o bundle.js
+
+Otimização para produção do CSS.
+
+Instalação de um plugin
+
+npm install css-minimizer-webpack-plugin@1.3.0 –save-dev
+
+fazer a importação com const
+
+para otimização não vai ficar em plugin e sim em uma chave especial
+
+optimization:{
+minimize: true,
+minimizer:[new 'nome do plugin classe'
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

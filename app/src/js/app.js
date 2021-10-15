@@ -1,5 +1,7 @@
 import { NegociacaoController } from './controllers/negociacao-controller.js';
 console.log('Apenas Teste do hash')
+import 'bootstrap/dist/css/bootstrap.css'
+
 const controller = new NegociacaoController();
 const form = document.querySelector('.form');
 if (form) {
