@@ -1,5 +1,6 @@
-Passo a Passo - Webpack Alura
+=> Passo a Passo - Webpack Alura
 
+=> Comandos para iniciar 
 npm install
 npm run start(rodar o projeto)
 
@@ -34,7 +35,7 @@ usando o parâmetro no package.json
 
 Gerando um HTML, para a pasta dist.
 
-Utilizando o plugin HTML webpack plugin
+=> Utilizando o plugin HTML webpack plugin
 
 todo plugins, que importar dentro da configuração, importar dentro do webpack.config
 
@@ -63,7 +64,7 @@ No plugin, hash:true
 Quando carregar o bundle.js, se ficar em cache, e tiver uma alteração é recarregado o js novamente.
 
 
-Resolvendo o CSS.
+=> Resolvendo o CSS.
 
 Usando outro plugin, instalando 
 
@@ -89,7 +90,7 @@ npm install bootstrap@4.6.0 --save
 
 Sem ser em desenvolvimento, pois vai ser visualizado no projeto final.
 
-Tratar Css como modulo.
+=> Tratar Css como modulo.
 
 Importar o bootstrap no app.js 
 como modulo.
@@ -133,7 +134,7 @@ No lugar do 'style-loader', chamar a classe que criei, junto com o '.loader'
 para otimização.
 
 
-Build de produção.
+=> Build de produção.
 
 No package.json
 chamar de 'build-prod'
@@ -156,6 +157,69 @@ optimization:{
 minimize: true,
 minimizer:[new 'nome do plugin classe'
 }
+
+Para solucionar o erro de não compactar o bundle.js, por causa do cssMinimazer.
+
+Utilizo, depois do cssMinimazer, essa config '...', dessa forma o webpack ativa a minha config, e mantem a padrão dele.
+
+Melhora otimização para o bundle.js, sem instalação necessária.
+
+Ativar um arquivo padrão do webpack
+
+ModelConcatenationPlugin
+
+Declarar a variável como webpack, e colocar no plugin, chamando com o 'new'
+
+new webpack.optimize.ModuleConcatenationPlugin()
+
+** apenas para o projeto **
+
+entrar na pasta servidor-api 
+
+npm install e depois npm run start.
+
+Separando quando tem um servidor de api, para executar apenas se o usuário de fato clicar para importar a negociação.
+
+Implementação do lazy loading(comportamento preguiçoso) -> fundamental para aplicações em SPA.(code splitting)
+
+Fazer a implementação no código onde chamo o import do service, em modulo.
+Assim vai ser gerado dois bundle
+
+Em produção o nome é alterado automático.
+
+ => Webpack Dev-Server (ambiente de desenvolvento do webpack)
+
+Instalação do server.
+
+npm install webpack-dev-server@3.11.2 --save-dev
+
+alteração do script, start o mesmo para o de produção, start-prod.
+
+
+webpack serve --mode development --config webpack.config.js
+
+
+No webpack.config, fazer a configuação do servidor.
+
+devServer:{
+contentBase: path.resolve(__dirname,'dist'),
+port: 3000 => porta que vai rodar o servidor
+}
+
+Para parar de dar um erro de cli usar esse comando.
+
+npm i -D webpack-cli @webpack-cli/serve
+
+Dessa forma não vai gerar a pasta 'dist'
+
+Foi gravado em memória a pasta 'dist'
+
+
+
+
+
+
+
 
 
 
